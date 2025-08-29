@@ -587,9 +587,18 @@ const Dashboard = () => {
     <div className="dashboard-content">
       <div className="page-header">
         <h2>Mon Profil</h2>
-        <button className="edit-profile-btn" onClick={() => alert('Fonctionnalité d\'édition en cours de développement')}>
-          <i className="fas fa-edit"></i> Modifier
-        </button>
+        <div className="header-actions">
+          <button className="edit-profile-btn" onClick={() => alert('Fonctionnalité d\'édition en cours de développement')}>
+            <i className="fas fa-edit"></i> Modifier
+          </button>
+          <button className="logout-btn" onClick={() => {
+            if (window.confirm('Êtes-vous sûr de vouloir vous déconnecter ?')) {
+              window.location.href = '/';
+            }
+          }}>
+            <i className="fas fa-sign-out-alt"></i> Déconnexion
+          </button>
+        </div>
       </div>
 
       {/* Informations personnelles */}

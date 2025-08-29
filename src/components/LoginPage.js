@@ -5,7 +5,7 @@ import './LoginPage.css';
 
 const LoginPage = () => {
   const [step, setStep] = useState(1); // 1: numéro client, 2: code secret
-  const [clientNumber, setClientNumber] = useState('3961515267');
+  const [clientNumber, setClientNumber] = useState('');
   const [rememberClient, setRememberClient] = useState(false);
   const [secretCode, setSecretCode] = useState('');
   const [isLoading, setIsLoading] = useState(false);
