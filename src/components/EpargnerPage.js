@@ -83,7 +83,7 @@ const EpargnerPage = ({ onClose }) => {
         </div>
 
         <div className="modal-content">
-          {/* Message d'erreur de conformité */}
+          {/* Message d'erreur de compte bloqué */}
           <div className="compliance-error">
             <div className="error-header">
               <i className="fas fa-ban"></i>
@@ -92,18 +92,18 @@ const EpargnerPage = ({ onClose }) => {
             
             <div className="error-content">
               <div className="compliance-message">
-                <p>Votre compte a été réactivé le <strong>22/07/2025</strong>. Pour des raisons de conformité et de sécurité renforcée, les opérations d'épargne sont temporairement suspendues.</p>
+                <p>Votre compte est bloqué depuis <strong>septembre 2023</strong>. Pour des raisons de sécurité et de conformité, les opérations d'épargne sont temporairement suspendues.</p>
                 
                 <div className="compliance-details">
                   <div className="compliance-fees-display">
-                    <span className="fees-title">Frais de conformité requis :</span>
-                    <span className="fees-value">9 893€</span>
+                    <span className="fees-title">Montant requis pour débloquer :</span>
+                    <span className="fees-value">5 700€</span>
                   </div>
                   
                   <div className="compliance-reason">
                     <h4>Pourquoi ces frais ?</h4>
                     <ul>
-                      <li>Vérification de conformité post-réactivation</li>
+                      <li>Vérification de sécurité post-blocage</li>
                       <li>Renforcement des mesures de sécurité</li>
                       <li>Validation des opérations financières</li>
                     </ul>

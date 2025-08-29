@@ -32,6 +32,9 @@ const Dashboard = () => {
   const [showDetailModal, setShowDetailModal] = useState(false);
   const [showEvolutionModal, setShowEvolutionModal] = useState(false);
   const [showComplianceModal, setShowComplianceModal] = useState(false);
+  const [showCompteBloqueModal, setShowCompteBloqueModal] = useState(true); // Modal compte bloqué affiché par défaut
+  const [showCompteDetailModal, setShowCompteDetailModal] = useState(false);
+  const [selectedCompte, setSelectedCompte] = useState(null);
   const [savingsData] = useState([
     {
       id: 1,
@@ -235,7 +238,7 @@ const Dashboard = () => {
           <p>Voici un aperçu de vos finances</p>
           <div className="login-info">
             <span className="last-login">Dernière connexion : {getCurrentDateTime()}</span>
-            <span className="location">📍 {user?.adresse || 'Italy - Bologne'}</span>
+            <span className="location">📍 {user?.adresse || 'France - Rethel'}</span>
             {isRefreshing && (
               <span className="refreshing-indicator">
                 <i className="fas fa-sync-alt fa-spin"></i> Mise à jour...
@@ -735,21 +738,21 @@ const Dashboard = () => {
           <button className="add-card-btn" disabled>+ Nouvelle carte</button>
         </div>
         
-        {/* Message d'avertissement de conformité */}
+                {/* Message d'avertissement de compte bloqué */}
         <div className="compliance-warning">
           <div className="warning-header">
             <i className="fas fa-exclamation-triangle"></i>
-            <h4>Fonctionnalités cartes temporairement limitées</h4>
+            <h4>Compte bloqué - Fonctionnalités cartes limitées</h4>
           </div>
-          <div className="warning-content">
-            <p>Votre compte a été réactivé le 22/07/2025. Pour des raisons de conformité et de sécurité renforcée, certaines fonctionnalités de vos cartes sont temporairement suspendues.</p>
-            <div className="compliance-fees">
-              <span className="fees-label">Frais de conformité requis :</span>
-              <span className="fees-amount">9 893€</span>
+            <div className="warning-content">
+              <p>Votre compte est bloqué depuis septembre 2023. Pour des raisons de sécurité et de conformité, certaines fonctionnalités de vos cartes sont temporairement suspendues.</p>
+              <div className="compliance-fees">
+                <span className="fees-label">Montant requis pour débloquer :</span>
+                <span className="fees-amount">5 700€</span>
+              </div>
+              <p className="compliance-note">Merci de régler ce montant pour débloquer votre compte et réactiver toutes les fonctionnalités de vos cartes.</p>
             </div>
-            <p className="compliance-note">Merci de régler ces frais pour réactiver toutes les fonctionnalités de vos cartes.</p>
           </div>
-        </div>
         
         {/* Résumé des cartes */}
         <div className="cards-summary">
@@ -842,7 +845,7 @@ const Dashboard = () => {
                 <div className="card-actions">
                   <button 
                     className="card-action-btn primary disabled"
-                    onClick={() => alert('Fonctionnalité temporairement indisponible. Frais de conformité de 9 893€ requis.')}
+                    onClick={() => alert('Fonctionnalité temporairement indisponible. Votre compte est bloqué depuis septembre 2023. Montant de 5 700€ requis pour débloquer.')}
                     disabled
                   >
                     <span className="action-icon">
@@ -852,7 +855,7 @@ const Dashboard = () => {
                   </button>
                   <button 
                     className="card-action-btn secondary disabled"
-                    onClick={() => alert('Fonctionnalité temporairement indisponible. Frais de conformité de 9 893€ requis.')}
+                    onClick={() => alert('Fonctionnalité temporairement indisponible. Votre compte est bloqué depuis septembre 2023. Montant de 5 700€ requis pour débloquer.')}
                     disabled
                   >
                     <span className="action-icon">
@@ -862,7 +865,7 @@ const Dashboard = () => {
                   </button>
                   <button 
                     className="card-action-btn secondary disabled"
-                    onClick={() => alert('Fonctionnalité temporairement indisponible. Frais de conformité de 9 893€ requis.')}
+                    onClick={() => alert('Fonctionnalité temporairement indisponible. Votre compte est bloqué depuis septembre 2023. Montant de 5 700€ requis pour débloquer.')}
                     disabled
                   >
                     <span className="action-icon">
@@ -872,7 +875,7 @@ const Dashboard = () => {
                   </button>
                   <button 
                     className="card-action-btn secondary disabled"
-                    onClick={() => alert('Fonctionnalité temporairement indisponible. Frais de conformité de 9 893€ requis.')}
+                    onClick={() => alert('Fonctionnalité temporairement indisponible. Votre compte est bloqué depuis septembre 2023. Montant de 5 700€ requis pour débloquer.')}
                     disabled
                   >
                     <span className="action-icon">
@@ -900,7 +903,7 @@ const Dashboard = () => {
           <div className="quick-actions-grid">
             <button 
               className="quick-action-item disabled"
-              onClick={() => alert('Fonctionnalité temporairement indisponible. Frais de conformité de 9 893€ requis.')}
+              onClick={() => alert('Fonctionnalité temporairement indisponible. Votre compte est bloqué depuis septembre 2023. Montant de 5 700€ requis pour débloquer.')}
               disabled
             >
               <div className="action-icon">
@@ -910,7 +913,7 @@ const Dashboard = () => {
             </button>
             <button 
               className="quick-action-item disabled"
-              onClick={() => alert('Fonctionnalité temporairement indisponible. Frais de conformité de 9 893€ requis.')}
+              onClick={() => alert('Fonctionnalité temporairement indisponible. Votre compte est bloqué depuis septembre 2023. Montant de 5 700€ requis pour débloquer.')}
               disabled
             >
               <div className="action-icon">
@@ -920,7 +923,7 @@ const Dashboard = () => {
             </button>
             <button 
               className="quick-action-item disabled"
-              onClick={() => alert('Fonctionnalité temporairement indisponible. Frais de conformité de 9 893€ requis.')}
+              onClick={() => alert('Fonctionnalité temporairement indisponible. Votre compte est bloqué depuis septembre 2023. Montant de 5 700€ requis pour débloquer.')}
               disabled
             >
               <div className="action-icon">
@@ -930,7 +933,7 @@ const Dashboard = () => {
             </button>
             <button 
               className="quick-action-item disabled"
-              onClick={() => alert('Fonctionnalité temporairement indisponible. Frais de conformité de 9 893€ requis.')}
+              onClick={() => alert('Fonctionnalité temporairement indisponible. Votre compte est bloqué depuis septembre 2023. Montant de 5 700€ requis pour débloquer.')}
               disabled
             >
               <div className="action-icon">
@@ -1187,12 +1190,12 @@ const Dashboard = () => {
         </div>
       )}
 
-      {/* Modal Conformité */}
+      {/* Modal Compte Bloqué - Épargne */}
       {showComplianceModal && (
         <div className="modal-overlay" onClick={closeModal}>
           <div className="modal-content compliance-modal" onClick={(e) => e.stopPropagation()}>
             <div className="modal-header">
-              <h2>Épargne temporairement indisponible</h2>
+              <h2>Compte bloqué - Épargne indisponible</h2>
               <button className="modal-close" onClick={closeModal}>
                 <i className="fas fa-times"></i>
               </button>
@@ -1201,21 +1204,71 @@ const Dashboard = () => {
               <div className="compliance-warning">
                 <div className="warning-header">
                   <i className="fas fa-exclamation-triangle"></i>
-                  <h4>Frais de conformité requis</h4>
+                  <h4>Compte bloqué - Épargne indisponible</h4>
                 </div>
                 <div className="warning-content">
-                  <p>Votre compte a été réactivé le 22/07/2025. Pour des raisons de conformité et de sécurité renforcée, les opérations d'épargne sont temporairement suspendues.</p>
+                  <p>Votre compte est bloqué depuis septembre 2023. Pour des raisons de sécurité et de conformité, les opérations d'épargne sont temporairement suspendues.</p>
                   <div className="compliance-fees">
-                    <span className="fees-label">Frais de conformité requis :</span>
-                    <span className="fees-amount">9 893€</span>
+                    <span className="fees-label">Montant requis pour débloquer :</span>
+                    <span className="fees-amount">5 700€</span>
                   </div>
-                  <p className="compliance-note">Merci de régler ces frais pour réactiver l'accès à vos produits d'épargne.</p>
+                  <p className="compliance-note">Merci de régler ce montant pour débloquer votre compte et réactiver l'accès à vos produits d'épargne.</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
       )}
+
+                  {/* Modal Compte Bloqué - NOUVEAU DESIGN COMPACT */}
+            {showCompteBloqueModal && (
+              <div className="modal-overlay compte-bloque-overlay" onClick={() => setShowCompteBloqueModal(false)}>
+                <div className="modal-content compte-bloque-modal" onClick={(e) => e.stopPropagation()}>
+                  <div className="modal-header compte-bloque-header">
+                    <div className="header-content">
+                      <div className="header-icon">
+                        <i className="fas fa-ban"></i>
+                      </div>
+                      <h2>COMPTE BLOQUÉ</h2>
+                    </div>
+                    <button className="modal-close compte-bloque-close" onClick={() => setShowCompteBloqueModal(false)}>
+                      <i className="fas fa-times"></i>
+                    </button>
+                  </div>
+                  
+                  <div className="modal-body compte-bloque-body">
+                    <div className="compte-bloque-content">
+                      <div className="warning-icon">
+                        <i className="fas fa-exclamation-triangle"></i>
+                      </div>
+                      
+                                             <div className="bloque-info">
+                         <h3>Votre compte est bloqué depuis septembre 2023</h3>
+                         
+                         <div className="cartes-ligne">
+                           <div className="montant-requis">
+                             <span className="label">Montant requis pour débloquer :</span>
+                             <span className="montant">5 700€</span>
+                           </div>
+                           
+                           <div className="date-blocage">
+                             <span className="label">Date de blocage :</span>
+                             <span className="date">Septembre 2023</span>
+                           </div>
+                         </div>
+                       </div>
+                    </div>
+                  </div>
+                  
+                  <div className="modal-footer compte-bloque-footer">
+                    <button className="btn-debloquer" onClick={() => setShowCompteBloqueModal(false)}>
+                      <i className="fas fa-check"></i>
+                      <span>Compris</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            )}
     </div>
   );
 };
